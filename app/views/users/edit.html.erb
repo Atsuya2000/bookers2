@@ -1,0 +1,22 @@
+<h2>User info</h2>
+<%= form_with model:@user, local:true do |f| %>
+  <label for="inputName">Name</label>
+  <%= f.text_field :name, autofocus: true, placeholder:"name"%>
+  <label for="inputImage">Image</label>
+  <%= f.attachment_field :profile_image, autofocus: true, placeholder:"image"%>
+  <label for="inputImage">Introduction</label>
+  <%= f.text_field :introduction, autofocus: true, placeholder:"introduction"%>
+  <%= f.submit "Update User" %>
+<% end %>
+<p>CopyRight Infratop.inc</p>
+
+<%if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this book from being saved:</h2>
+   <ul>
+     <% @user.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+   </ul>
+  </div>
+<% end %>
