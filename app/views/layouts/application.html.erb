@@ -14,8 +14,8 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <h2>bookers</h2>
-          <a class="navbar-brand p-3" href="/"></a>
+          <h3><%= link_to 'Bookers', root_path, class: 'nav-link text-dark' %></h3>
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -23,10 +23,7 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'Bookers', root_path, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to books_path, class: 'nav-link text-dark' do %>
+              <%= link_to user_path(current_user.id), class: 'nav-link text-dark' do %>
                 <i class="fas fa-home">Home</i>
               <% end %>
             </li>
@@ -36,7 +33,7 @@
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to user_path(current_user.id), class: 'nav-link text-dark' do %>
+              <%= link_to books_path, class: 'nav-link text-dark' do %>
                 <i class="fas fa-book-open">Books</i>
               <% end %>
             </li>
@@ -47,27 +44,16 @@
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to 'Bookers', root_path, class: 'nav-link text-dark' %>
+              <%= link_to "Home", root_path, class: 'fas fa-home nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to root_path, class: 'nav-link text-dark' do %>
-                <i class="fas fa-home">Home</i>
-              <% end %>
+              <%= link_to "About", about_path, class: 'fas fa-link nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to about_path, class: 'nav-link text-dark' do %>
-                <i class="fas fa-link">About</i>
-              <% end %>
+              <%= link_to "sign up", new_user_registration_path, class: 'fas fa-user-plus nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
-                <i class="fas fa-user-plus">sgin up</i>
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to new_user_session_path, class: 'nav-link text-dark' do %>
-                <i class="fas fa-sign-in-alt">login</i>
-              <% end %>
+              <%= link_to "login", new_user_session_path, class: 'fas fa-sign-in-alt nav-link text-dark' %>
             </li>
             <% end %>
             </ul>
@@ -75,6 +61,7 @@
         </div>
       </nav>
     </header>
+    <%= flash[:notice] %>
     <main class="mb-auto">
     <%= yield %>
     </main>
@@ -84,7 +71,7 @@
           <div class="col-md-8">
             <ul class="p-0 list-unstyled">
               <li>
-                <a href="" title="About" class="text-black-50">CopyRight Infratop.inc</a>
+                <a href="" title="" class="text-black-50">CopyRight Infratop.inc</a>
               </li>
             </ul>
           </div>

@@ -1,11 +1,11 @@
 <h2>User info</h2>
 <%= form_with model:@user, local:true do |f| %>
   <label for="inputName">Name</label>
-  <%= f.text_field :name, autofocus: true, placeholder:"name"%>
+  <%= f.text_field :name, autofocus: true %>
   <label for="inputImage">Image</label>
-  <%= f.attachment_field :profile_image, autofocus: true, placeholder:"image"%>
-  <label for="inputImage">Introduction</label>
-  <%= f.text_field :introduction, autofocus: true, placeholder:"introduction"%>
+  <%= f.attachment_field :profile_image, autofocus: true %>
+  <label for="inputIntroduction">Introduction</label>
+  <%= f.text_field :introduction, autofocus: true %>
   <%= f.submit "Update User" %>
 <% end %>
 <p>CopyRight Infratop.inc</p>
