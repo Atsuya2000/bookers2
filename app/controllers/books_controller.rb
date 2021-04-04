@@ -15,7 +15,7 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
-    @books = Book.all
+    @books = Book.page(params[:page]).reverse_order
     @user = User.all
   end
 
@@ -23,6 +23,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book_new = Book.new
     @user = @book.user
+    @book_comment = BookComment.new
   end
 
   def edit
